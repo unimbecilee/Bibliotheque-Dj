@@ -7,9 +7,6 @@ from django.shortcuts import render, redirect
 from .models import *
 
 def home(request):
-    return render(request, "index.html",context={"current_tab": "home"})
-
-def home(request):
     return render(request, "home.html",context={"current_tab": "home"})
 
 def lecteur(request):
@@ -27,8 +24,6 @@ def rendus(request):
 def shopping(request):
     return HttpResponse("Bienvenue sur la page de shopping")
 
-def lecteur_tab(request):
-    lecteur = lecteur.objects.all()
-    return render(request,"lecteur.html",
-                                context={"current_tab":"lecteur", 
-                                        "lecteur": lecteur})
+def readers_tab(request):
+    readers = reader.objects.all()
+    return render(request,"lecteur.html",context={"current_tab": "lecteur","lecteurs":readers})
